@@ -9,13 +9,13 @@
 
 /* ========= Theme: Light ========= */
 [data-theme="light"] {
-  --bg-1: #f8fafc;
-  --bg-2: #4495ff;
-  --glass: rgba(255, 99, 99, 0.6);
-  --glass-strong: rgba(76, 76, 76, 0.8);
-  --glass-border: rgba(0, 0, 0, 0.06);
-  --text-main: #0f172a;
-  --text-muted: #64748b;
+  --bg-1: #8ec4fb;
+  --bg-2: #e2e8f0;
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(4, 0, 28, 0.06);
+  --text-main: #000830;
+  --text-muted: #00216a;
   --accent: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
   --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.1);
 }
