@@ -1,0 +1,18 @@
+{
+  "name": "novatasks",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "lite-server",
+    "start": "node server/sync-server.js",
+    "serve": "lite-server"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.81.1",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
