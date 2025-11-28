@@ -9,11 +9,11 @@
 
 /* ========= Theme: Light ========= */
 [data-theme="light"] {
-  --bg-1: #8ec4fb;
+  --bg-1: #ddeeff;
   --bg-2: #e2e8f0;
   --glass: rgba(255, 255, 255, 0.6);
   --glass-strong: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(4, 0, 28, 0.06);
+  --glass-border: rgba(0, 0, 0, 0.06);
   --text-main: #000830;
   --text-muted: #00216a;
   --accent: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);

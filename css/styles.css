@@ -874,7 +874,7 @@ select:focus {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #0f172a;
+  background: var(--bg-1);
   border-radius: 20px;
   border: 1px solid var(--glass-border);
   padding: 24px;
