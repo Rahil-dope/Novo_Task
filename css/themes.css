@@ -9,19 +9,19 @@
 
 /* ========= Theme: Light ========= */
 [data-theme="light"] {
-  --bg-1: #ddeeff;
+  --bg-1: #639cf1;
   --bg-2: #e2e8f0;
-  --glass: rgba(255, 255, 255, 0.6);
+  --glass: rgba(255, 255, 255, 0.59);
   --glass-strong: rgba(255, 255, 255, 0.8);
   --glass-border: rgba(0, 0, 0, 0.06);
   --text-main: #000830;
   --text-muted: #00216a;
-  --accent: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  --accent: linear-gradient(135deg, #3b82f6 0%, #639cf1 100%);
   --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.1);
 }
 
 [data-theme="light"] body {
-  background: linear-gradient(180deg, #f1f5f9, #e2e8f0);
+  background: linear-gradient(180deg, #e7e7e7, #aac8ef);
 }
 
 [data-theme="light"] .app {
