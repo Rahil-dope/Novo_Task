@@ -10,9 +10,9 @@
 /* ========= Theme: Light ========= */
 [data-theme="light"] {
   --bg-1: #f8fafc;
-  --bg-2: #e2e8f0;
-  --glass: rgba(255, 255, 255, 0.6);
-  --glass-strong: rgba(255, 255, 255, 0.8);
+  --bg-2: #4495ff;
+  --glass: rgba(255, 99, 99, 0.6);
+  --glass-strong: rgba(76, 76, 76, 0.8);
   --glass-border: rgba(0, 0, 0, 0.06);
   --text-main: #0f172a;
   --text-muted: #64748b;
