@@ -256,6 +256,29 @@ export function createTaskCard(t) {
 
   const colorStyle = t.color && t.color !== 'default' ? `border-left: 3px solid ${getColorValue(t.color)};` : '';
 
+  // Calculate subtask progress
+  const subtasks = t.subtasks || [];
+  const completedSubtasks = subtasks.filter(st => st.completed).length;
+  const subtaskProgress = subtasks.length > 0 ? `${completedSubtasks}/${subtasks.length}` : '';
+
+  // Build subtask HTML
+  let subtaskHTML = '';
+  if (subtasks.length > 0) {
+    subtaskHTML = `
+      <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.05)">
+        <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px">
+          ✓ Subtasks: ${subtaskProgress}
+        </div>
+        ${subtasks.slice(0, 3).map(st => `
+          <div style="font-size:11px;color:${st.completed ? 'var(--text-muted)' : 'inherit'};text-decoration:${st.completed ? 'line-through' : 'none'};margin-bottom:2px">
+            ${st.completed ? '☑' : '☐'} ${escapeHtml(st.title)}
+          </div>
+        `).join('')}
+        ${subtasks.length > 3 ? `<div style="font-size:11px;color:var(--text-muted)">+${subtasks.length - 3} more...</div>` : ''}
+      </div>
+    `;
+  }
+
   div.innerHTML = `
     <div style="${colorStyle}">
       <h5>${escapeHtml(t.title)}</h5>
@@ -266,6 +289,7 @@ export function createTaskCard(t) {
       </div>
       <div style="height:8px"></div>
       <div class="muted" style="font-size:13px">${escapeHtml(truncate(t.desc || '', 140))}</div>
+      ${subtaskHTML}
       <div class="task-actions">
         <button class="icon-btn" data-action="edit" title="Edit">✏️</button>
         <button class="icon-btn" data-action="delete" title="Delete">🗑️</button>

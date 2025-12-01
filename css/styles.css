@@ -918,6 +918,66 @@ select:focus {
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
 }
 
+/* ========= User Menu ========= */
+.user-menu {
+  position: relative;
+}
+
+.user-btn {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  padding: 8px 14px;
+  border-radius: var(--btn-radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.user-btn:hover {
+  background: var(--glass-strong);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 220px;
+  background: var(--bg-1);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  animation: fadeInDown 0.2s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-info {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--glass-border);
+  margin-bottom: 12px;
+}
+
+.user-info div {
+  word-break: break-all;
+}
+
+
 /* ========= Responsive ========= */
 @media (max-width: 1024px) {
   .app {

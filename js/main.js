@@ -8,6 +8,7 @@ import { initCalendar, renderCalendar } from './calendar.js';
 import { initNotifications } from './notifications.js';
 import { initSync } from './sync.js';
 import { checkRecurringTasks } from './recurring.js';
+// import { initAuth, getCurrentUser, isAuthenticated, onAuthStateChange, getUserDisplayName, signOut } from './auth.js'; // Removed
 
 // Global state
 let editingId = null;
@@ -28,19 +29,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-function initApp() {
-  applyTheme(currentTheme);
-  initTaskManager(handleTasksChange, render);
-  initCalendar();
-  initNotifications();
-  initSync();
-  setupEventListeners();
-  render();
+async function initApp() {
+  try {
+    // Initialize app directly without auth
+    applyTheme(currentTheme);
+    initTaskManager(handleTasksChange, render);
+    initCalendar();
+    initNotifications();
+    initSync();
+    setupEventListeners();
+    // setupAuthUI(); // Removed
+    render();
 
-  // Check recurring tasks periodically
-  setInterval(() => {
-    checkRecurringTasks(getTasks(), addTask);
-  }, 60000);
+    // Check recurring tasks periodically
+    setInterval(() => {
+      checkRecurringTasks(getTasks(), addTask);
+    }, 60000);
+  } catch (error) {
+    console.error('Error initializing app:', error);
+  }
 }
 
 function handleTasksChange(tasks) {
@@ -179,11 +186,33 @@ function renderList() {
     const deadline = t.deadline ? new Date(t.deadline).toLocaleString() : 'No deadline';
     const dueClass = t.deadline ? (new Date(t.deadline) < new Date() && t.status !== 'Completed' ? 'overdue' : '') : '';
 
+    // Calculate subtask progress
+    const subtasks = t.subtasks || [];
+    const completedSubtasks = subtasks.filter(st => st.completed).length;
+    const subtaskProgress = subtasks.length > 0 ? `${completedSubtasks}/${subtasks.length}` : '';
+
+    // Build subtask HTML for list view
+    let subtaskHTML = '';
+    if (subtasks.length > 0) {
+      subtaskHTML = `
+        <div style="margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.05)">
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px">
+            ✓ Subtasks: ${subtaskProgress}
+          </div>
+          ${subtasks.map(st => `
+            <div style="font-size:11px;color:${st.completed ? 'var(--text-muted)' : 'inherit'};text-decoration:${st.completed ? 'line-through' : 'none'};margin-bottom:2px">
+              ${st.completed ? '☑' : '☐'} ${escapeHtml(st.title)}
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
     return `
       <div class="list-item" data-id="${t.id}">
         <input type="checkbox" ${t.status === 'Completed' ? 'checked' : ''} 
                onchange="window.toggleTaskStatus('${t.id}')" />
-        <div>
+        <div style="flex:1">
           <div style="font-weight:600;margin-bottom:4px">${escapeHtml(t.title)}</div>
           <div class="muted" style="font-size:12px">${escapeHtml(t.desc || '')}</div>
           <div style="display:flex;gap:8px;margin-top:6px;font-size:12px">
@@ -191,6 +220,7 @@ function renderList() {
             <span class="muted">${escapeHtml(t.category || '')}</span>
             <span class="deadline ${dueClass}">${deadline}</span>
           </div>
+          ${subtaskHTML}
         </div>
         <div class="muted" style="font-size:11px">${(t.tags || []).map(x => `#${escapeHtml(x)}`).join(' ')}</div>
         <div style="display:flex;gap:4px">
@@ -490,6 +520,11 @@ function setupEventListeners() {
     console.error('Error setting up event listeners:', error);
   }
 }
+
+/**
+ * Setup authentication UI elements - REMOVED
+ */
+// function setupAuthUI() { ... }
 
 function renderSubtasksInModal() {
   const container = $('#subtaskList');

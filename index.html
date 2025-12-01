@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NovaTasks — Advanced Task Manager</title>
-  <meta name="description" content="Advanced task manager with calendar view, recurring tasks, notifications, themes, and sync capabilities" />
+  <meta name="description"
+    content="Advanced task manager with calendar view, recurring tasks, notifications, themes, and sync capabilities" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/themes.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,27 +15,30 @@
   <link rel="icon" type="image/png" href="image/favicon.png" />
 
 </head>
+
 <body>
   <div class="app" role="application" aria-label="NovaTasks Advanced Task Manager">
-    
+
     <!-- Header -->
     <header>
       <div class="brand">
         <div class="logo">
           <img src="image/favicon copy.png" alt="NovaTasks Logo">
         </div>
-       <div>
-    <h1>NovaTasks</h1>
-    <p>Premium Task Management</p>
-  </div>
-</div>
+        <div>
+          <h1>NovaTasks</h1>
+          <p>Premium Task Management</p>
+        </div>
+      </div>
 
       <div class="controls">
         <div class="search">
           <input id="searchInput" placeholder="Search tasks, tags or descriptions..." />
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35"/>
-            <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+              d="M21 21l-4.35-4.35" />
+            <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </div>
 
@@ -48,6 +53,9 @@
         <button class="btn" id="importBtn" title="Import tasks">Import</button>
         <button class="btn" id="syncBtn" title="Sync with cloud">Sync</button>
         <button class="btn primary" id="addTaskBtn">+ New Task</button>
+
+        <!-- User Profile Menu - REMOVED -->
+        <!-- <div class="user-menu" id="userMenu"> ... </div> -->
       </div>
     </header>
 
@@ -84,7 +92,8 @@
         <div style="margin-top:18px">
           <h4 style="margin:0 0 8px 0">Sort & View</h4>
           <div style="display:flex;gap:8px;margin-bottom:8px">
-            <select id="sortSelect" class="btn" style="padding:8px 10px;border-radius:10px;background:var(--bg-1);border:1px solid rgba(255,255,255,0.03)">
+            <select id="sortSelect" class="btn"
+              style="padding:8px 10px;border-radius:10px;background:var(--bg-1);border:1px solid rgba(255,255,255,0.03)">
               <option value="custom">Manual</option>
               <option value="deadline">Deadline</option>
               <option value="priority">Priority</option>
@@ -161,13 +170,16 @@
         </section>
 
         <!-- Analytics View -->
-        <section class="analytics-view view-container" id="analyticsView" style="display:none; padding: 20px; overflow-y: auto;">
+        <section class="analytics-view view-container" id="analyticsView"
+          style="display:none; padding: 20px; overflow-y: auto;">
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div class="chart-card" style="background: var(--glass); padding: 20px; border-radius: 16px; border: 1px solid var(--glass-border);">
+            <div class="chart-card"
+              style="background: var(--glass); padding: 20px; border-radius: 16px; border: 1px solid var(--glass-border);">
               <h3 style="margin-top: 0;">Task Modal Completion</h3>
               <div id="completionChart" style="height: 200px;"></div>
             </div>
-            <div class="chart-card" style="background: var(--glass); padding: 20px; border-radius: 16px; border: 1px solid var(--glass-border);">
+            <div class="chart-card"
+              style="background: var(--glass); padding: 20px; border-radius: 16px; border: 1px solid var(--glass-border);">
               <h3 style="margin-top: 0;">Productivity Trend</h3>
               <div id="productivityChart" style="height: 200px;"></div>
             </div>
@@ -252,7 +264,8 @@
                   <option value="monthly">Monthly</option>
                   <option value="yearly">Yearly</option>
                 </select>
-                <input type="number" id="recurringInterval" placeholder="Interval (e.g., 2 for every 2 days)" min="1" value="1" />
+                <input type="number" id="recurringInterval" placeholder="Interval (e.g., 2 for every 2 days)" min="1"
+                  value="1" />
               </div>
             </div>
             <div>
@@ -318,10 +331,11 @@
       </div>
     </div>
     <footer class="app-footer">
-    <p>
-      Created by <strong>Rahil hussain</strong> &bull; 
-      <a href="https://www.linkedin.com/in/rahil-hussain-a54348291" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </p>
+      <p>
+        Created by <strong>Rahil hussain</strong> &bull;
+        <a href="https://www.linkedin.com/in/rahil-hussain-a54348291" target="_blank"
+          rel="noopener noreferrer">LinkedIn</a>
+      </p>
     </footer>
   </div>
 
@@ -336,6 +350,7 @@
       }
     });
   </script>
-  
+
 </body>
+
 </html>
